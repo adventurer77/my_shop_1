@@ -1,0 +1,42 @@
+[
+    {
+        "model": "goods.categories",
+        "pk": 1,
+        "fields": {
+            "name": "All goods",
+            "slug": "all",
+            "is_visible": true,
+            "sort": 1
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 2,
+        "fields": {
+            "name": "Kitchen",
+            "slug": "kitchen",
+            "is_visible": true,
+            "sort": 2
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 3,
+        "fields": {
+            "name": "Bedroom",
+            "slug": "bedroom",
+            "is_visible": true,
+            "sort": 3
+        }
+    },
+    {
+        "model": "goods.categories",
+        "pk": 4,
+        "fields": {
+            "name": "Living room",
+            "slug": "living-room",
+            "is_visible": true,
+            "sort": 4
+        }
+    }
+]

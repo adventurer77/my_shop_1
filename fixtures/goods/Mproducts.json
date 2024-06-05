@@ -1,0 +1,92 @@
+[
+    {
+        "model": "goods.products",
+        "pk": 1,
+        "fields": {
+            "name": "Tea table and three chairs",
+            "slug": "tea-table-and-three-chairs",
+            "description": "Set of three chairs and a designer table for the living room.",
+            "image": "goods_images/set_of_tea_table_and_three_chairs_ikPyoG9.jpg",
+            "price": "150.00",
+            "discount": "20.00",
+            "quantity": 5,
+            "category": 4,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 2,
+        "fields": {
+            "name": "Tea table and two chairs",
+            "slug": "tea-table-and-two-chairs",
+            "description": "A set of a table and two chairs in a minimalist style.",
+            "image": "goods_images/set_of_tea_table_and_two_chairs_MGOyVwO.jpg",
+            "price": "93.00",
+            "discount": "0.00",
+            "quantity": 7,
+            "category": 4,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 3,
+        "fields": {
+            "name": "Double bed",
+            "slug": "double-bed",
+            "description": "King size bed with orthopedic headrest.",
+            "image": "goods_images/double_bed_IP0tSFK.jpg",
+            "price": "670.00",
+            "discount": "15.00",
+            "quantity": 6,
+            "category": 3,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 4,
+        "fields": {
+            "name": "Ordinary sofa",
+            "slug": "ordinary-sofa",
+            "description": "Sofa, aka an ordinary sofa",
+            "image": "goods_images/corner_sofa_iieWGWT.jpg",
+            "price": "190.00",
+            "discount": "0.00",
+            "quantity": 7,
+            "category": 3,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 5,
+        "fields": {
+            "name": "Kitchen table with sink",
+            "slug": "kitchen-table-with-sink",
+            "description": "Kitchen dining table with built-in sink and chairs.",
+            "image": "goods_images/kitchen_table_S01Ng3e.jpg",
+            "price": "365.00",
+            "discount": "17.00",
+            "quantity": 8,
+            "category": 2,
+            "is_visible": true
+        }
+    },
+    {
+        "model": "goods.products",
+        "pk": 6,
+        "fields": {
+            "name": "Kitchen table with built-in",
+            "slug": "kitchen-table-with-built-in",
+            "description": "Kitchen table with built-in stove and sink.",
+            "image": "goods_images/kitchen_table_2_JKy3ICB.jpg",
+            "price": "430.00",
+            "discount": "5.00",
+            "quantity": 3,
+            "category": 2,
+            "is_visible": true
+        }
+    }
+]
