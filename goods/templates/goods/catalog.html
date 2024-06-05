@@ -21,7 +21,7 @@
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="checkbox" name="on_sale" id="flexCheckDefault" value="on" {% if request.GET.on_sale == "on" %}checked{% endif %}>
                     {% if request.GET.q %}
-                        <input type="hidden" name="q" value="{{request.GET.q}}"> 
+                        <input type="hidden" name="q" value="{{ request.GET.q }}"> 
                     {% endif %}
                     <label class="form-check-label" for="flexCheckDefault">
                         Products on offer
@@ -89,7 +89,7 @@
                                     {% if product.bodyline %}
                                     {{ product.bodyline|truncatechars:95 }}
                                     {% else %}
-                                    {{ product.description|truncatechars:35  }}
+                                    {{ product.description|truncatechars:35 }}
                                     {% endif %}
                             {% endautoescape %}
                         </p>
@@ -98,7 +98,7 @@
 
                             {% if product.discount %}
                                 <p><s>{{ product.price }}</s> $</p>
-                                <p><strong>{{product.total_price}} $</strong></p>
+                                <p><strong>{{ product.total_price }} $</strong></p>
                                 <span class="badge bg-warning text-dark">Discount {{ product.discount }} %</span> 
                             {% else %}
                                 <p><strong>{{ product.price }} $</strong></p> 
