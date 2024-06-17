@@ -43,7 +43,6 @@ def cart_add(request):
             )
 
 
-
     user_cart = get_user_carts(request)
     cart_items_html = render_to_string(
         "carts/includes/included_cart.html", {"carts": user_cart}, request=request
