@@ -68,7 +68,9 @@ class CartViewTestCase(TestCase):
 
         self.client.login(username="testuser", password="testpassword123")
         response = self.client.post(
-            self.change_cart_url, {"cart_id": self.cart.id, "quantity": 3}
+            self.change_cart_url,
+            {"cart_id": self.cart.id, "quantity": 3},
+            HTTP_REFERER=reverse("orders:create_order"),
         )
         self.cart.refresh_from_db()
 

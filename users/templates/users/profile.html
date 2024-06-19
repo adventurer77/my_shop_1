@@ -107,7 +107,7 @@
                                         <button class="accordion-button {% if order != orders.0 %}collapsed{% endif %}"
                                          type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ order.id }}" aria-expanded="false" aria-controls="collapse{{ order.id }}">
                                             {{order_number|safe}} {{ order.id }} {{decrement_button_label|safe}} {{ order.created_timestamp }} {{status|safe}} 
-                                            <strong class="mx-2">{{order.requires_delivery}}</strong>
+                                            <strong class="mx-2">{{order.status}}</strong>
                                         </button>
                                     </h2>
                                     <div id="collapse{{ order.id }}" class="accordion-collapse collapse {% if order == orders.0 %}show{% endif %}"
