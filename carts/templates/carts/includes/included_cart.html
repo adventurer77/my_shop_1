@@ -16,7 +16,7 @@
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
-                                    -</button>
+                                    {{decrement_button_label|safe}}</button>
                             </span>
                             <input type="text" class="form-control number" value="{{cart.quantity}}"
                                 readonly>
@@ -25,14 +25,14 @@
                                     data-cart-id="{{ cart.id }}"
                                     data-cart-change-url="{% url "cart:cart_change" %}">
                                     {% csrf_token %}
-                                    +</button>
+                                    {{increment_button_label|safe}}</button>
                             </span>
                         </div>
                     </div>
                     <div class="col p-0">
-                        <p>x {{cart.product.total_price}} = </p>
+                        <p>{{multiplication|safe}} {{cart.product.total_price}} {{equal|safe}} </p>
                     </div>
-                    <div class="col p-0"><strong>{{cart.product_price}} $</strong></div>
+                    <div class="col p-0"><strong>{{cart.product_price}} {{currency_symbol|safe}}</strong></div>
                     <div class="col p-0">
                         <a href="{% url "cart:cart_remove" %}" class="remove-from-cart" 
                         data-cart-id={{ cart.id }}>
@@ -48,8 +48,8 @@
 </div>
 <div class="card mb-3 shadow-lg">
     <div class="card-footer">
-        <p class="float-left">Total <strong>{{carts.total_cart_quantity}}</strong> cost of item(s)</p>
-        <h4 class="float-left"><strong>{{carts.total_cart_price}} $</strong></h4>
+        <p class="float-left">{{total_items_text|slice:":5"|safe}} <strong>{{carts.total_cart_quantity}}</strong> {{total_items_text|slice:"6:"|safe}}</p>
+        <h4 class="float-left"><strong>{{carts.total_cart_price}} {{currency_symbol|safe}}</strong></h4>
     </div>
 </div>
 

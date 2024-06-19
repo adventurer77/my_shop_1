@@ -61,12 +61,12 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
                                     id="id_requires_delivery" value="1" checked>
-                                <label class="form-check-label" for="id_requires_delivery">Need delivery</label>
+                                <label class="form-check-label" for="id_requires_delivery">{{delivery_rb|safe}}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="requires_delivery"
                                     id="id_requires_delivery" value="0">
-                                <label class="form-check-label" for="id_requires_delivery">Pickup</label>
+                                <label class="form-check-label" for="id_requires_delivery">{{pickup_rb|safe}}</label>
                             </div>
                         </div>
                         <div class="mb-3" id="deliveryAddressField">
@@ -83,12 +83,12 @@
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="payment_on_get"
                                     id="id_payment_on_get" value="0" checked>
-                                <label class="form-check-label" for="id_payment_on_get">Payment by card</label>
+                                <label class="form-check-label" for="id_payment_on_get">{{payment_card_rb|safe}}</label>
                             </div>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="payment_on_get"
                                     id="id_payment_on_get" value="1">
-                                <label class="form-check-label" for="id_payment_on_get">Cash/card upon receipt</label>
+                                <label class="form-check-label" for="id_payment_on_get">{{cash_card_rb|safe}}</label>
                                     {% if form.payment_on_get.errors %}
                                         <div class="alert alert-danger alert-dismissible fade show">{{form.payment_on_get.errors}}</div>
                                     {% endif %}

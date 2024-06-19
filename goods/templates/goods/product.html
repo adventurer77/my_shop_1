@@ -48,7 +48,7 @@
             </div>
             <!-- Product Description -->
             <div class="card-body">
-                <p class="card-text">Price: <strong>{{ product.total_price }} $</strong></p>
+                <p class="card-text">{{price_title|safe}} <strong>{{ product.total_price }} {{currency_symbol|safe}}</strong></p>
                 <h5 class="card-title">{{ product.name }}</h5>
                 <p class="card-text">{{ product.description }}</p>
                 <a href="{% url "cart:cart_add" %}" class="btn btn-dark add-to-cart"

@@ -14,7 +14,7 @@
         <div class="dropdown mb-2">
             <button class="btn btn-secondary dropdown-toggle btn-dark" type="button" data-bs-toggle="dropdown"
                 aria-expanded="false">
-                Filters
+                {{filter_btn|safe}}
             </button>
 
             <form action="{% if request.GET.q %}{% url "catalog:search" %}{% else %}{% url "catalog:index" slug_url %}{% endif %}" method="get" class="dropdown-menu bg-dark" data-bs-theme="dark">
@@ -24,40 +24,40 @@
                         <input type="hidden" name="q" value="{{ request.GET.q }}"> 
                     {% endif %}
                     <label class="form-check-label" for="flexCheckDefault">
-                        Products on offer
+                        {{offer_cb|safe}}
                     </label>
                 </div>
-                <p class="text-white mx-3 mt-3">Sort:</p>
+                <p class="text-white mx-3 mt-3">{{sort_title|safe}}</p>
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault1" value="default" 
                     {% if not request.GET.order_by or request.GET.order_by == "default m" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault1">
-                        Default
+                        {{default_rb|safe}}
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault2" value="price" 
                     {% if request.GET.order_by == "price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault2">
-                        From cheap to expensive
+                        {{cheap_to_rb|safe}}
                     </label>
                 </div>
                 <div class="form-check text-white mx-3">
                     <input class="form-check-input" type="radio" name="order_by" id="flexRadioDefault3" value="-price" 
                     {% if request.GET.order_by == "-price" %}checked{% endif %}>
                     <label class="form-check-label" for="flexRadioDefault3">
-                        From expensive to cheap
+                        {{expensive_to_rb|safe}}
                     </label>
                 </div>
-                <button type="submit" class="btn btn-primary mx-3 mt-3">Apply</button>
+                <button type="submit" class="btn btn-primary mx-3 mt-3">{{apply_btn|safe}}</button>
             </form>
         </div>
 
         {% if request.GET.q %}
-        <h3 class="mt-4">Search results for"{{ request.GET.q }}"</h3>
+        <h3 class="mt-4">{{search_res|safe}} <strong>{{ request.GET.q }}</strong></h3>
         {% if not goods %}
             <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
-            <h2 class="m-4">No results found for your search</h2>
+            <h2 class="m-4">{{search_no_res|safe}}</h2>
         {% endif %}
         {% else %}
         <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
@@ -97,11 +97,11 @@
                         <div class="d-flex justify-content-between">
 
                             {% if product.discount %}
-                                <p><s>{{ product.price }}</s> $</p>
-                                <p><strong>{{ product.total_price }} $</strong></p>
-                                <span class="badge bg-warning text-dark">Discount {{ product.discount }} %</span> 
+                                <p><s>{{ product.price }}</s> </p>
+                                <p><strong>{{ product.total_price }} {{currency_symbol|safe}}</strong></p>
+                                <span class="badge bg-warning text-dark">{{discount_title|slice:":7"|safe}} {{ product.discount }} {{discount_title|slice:"9:"|safe}}</span> 
                             {% else %}
-                                <p><strong>{{ product.price }} $</strong></p> 
+                                <p><strong>{{ product.price }} {{currency_symbol|safe}}</strong></p> 
                             {% endif %}
 
                             <a href="{% url "cart:cart_add" %}" class="btn add-to-cart"
@@ -127,7 +127,7 @@
                     <a class="page-link" href="{% if goods.has_previous %}
                     ?{% change_params page=goods.previous_page_number %}
                     {% else %}
-                    # {% endif %}">Previous</a>
+                    # {% endif %}">{{p_previous|safe}}</a>
                     </li>
 
                     {% for page in goods.paginator.page_range %}
@@ -143,7 +143,7 @@
                         ?{% change_params page=goods.next_page_number %}
                         {% else %}
                         #   
-                        {% endif %}">Next</a>
+                        {% endif %}">{{p_next|safe}}</a>
                     </li>
                 </div>
             </ul>
