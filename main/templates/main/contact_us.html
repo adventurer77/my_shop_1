@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block modal_cart %}
+{% include "includes/cart_button.html" %}
+{% endblock %}
+
+
+{% block content %}
+<section id="contact">
+    <div class="container mt-5 pt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-14 bg-white p-4 mb-5 mx-2 rounded custom-shadow">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2 class="text-uppercase section-heading">{{title}}</h2>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <form id="contactForm" method="post"  name="contactForm">
+                            {% csrf_token %}
+        
+                            <div class="row">
+                                {% for field in form  %}
+                                    {% if field.name != "comment" %}
+                                        <div class="col-lg-4 col-md-6">
+                                            <div class="form-group mb-3"> 
+                                                {{ field }} <small class="form-text text-danger lead">{{field.errors}}</small>
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}        
+                                <div class="col-mt-3">
+                                    <div class="form-group mb-3">{{ form.comment }}</textarea><small class="form-text text-danger lead"></small></div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div><button class="btn btn-dark btn-xl text-uppercase" id="sendMessageButton" type="submit">{{contact_button}}</button>
+                                </div>
+                            </div>
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+
+{% block footer %}
+<footer class="py-4 bg-dark">
+    <link rel="stylesheet" href="{% static "deps/css/my_footer_css.css" %}">
+    <div class="container">
+        <p class="m-0 text-center text-white">{{footer}}</p>
+    </div>
+</footer>
+{% endblock %}
+
+
+{% comment %}   <form id="contactForm" name="contactForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3"><input class="form-control" type="text" id="name" placeholder="Your Name *" required=""><small class="form-text text-danger flex-grow-1 lead"></small></div>
+                                    <div class="form-group mb-3"><input class="form-control" type="email" id="email" placeholder="Your Email *" required=""><small class="form-text text-danger lead"></small></div>
+                                    <div class="form-group mb-3"><input class="form-control" type="tel" placeholder="Your Phone *" required=""><small class="form-text text-danger lead"></small></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-3"><textarea class="form-control" id="message" placeholder="Your Message *" required=""></textarea><small class="form-text text-danger lead"></small></div>
+                                </div>
+                                <div class="w-100"></div>
+                                <div class="col-lg-12 text-center">
+                                    <div id="success"></div><button class="btn btn-dark btn-xl text-uppercase" id="sendMessageButton" type="submit">Send Message</button>
+                                </div>
+                            </div>
+                        </form> {% endcomment %}

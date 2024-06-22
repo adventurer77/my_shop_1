@@ -1,6 +1,6 @@
 from django.shortcuts import render
-
-from goods.models import Categories
+from .forms import ContactForm
+from django.contrib import messages
 
 # Create your views here.
 
@@ -22,3 +22,24 @@ def about(request):
     }
 
     return render(request, "main/about.html", context)
+
+
+def contact(request):
+    form = ContactForm(request.POST)
+    context = {
+        "title": "Contact Us",
+        "contact_button": "Send Message",
+        "form" : form
+    }
+    if form.is_valid():
+        form.save()
+        messages.success(request, "Thank you for your question, we will contact you as soon as possible.")
+        return render(request, "main/index.html", context)
+    else:
+
+        messages.error(
+            request,
+            "There were errors in your form. Please correct and try again.",
+        )
+
+        return render(request, "main/contact_us.html", context)
