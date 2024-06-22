@@ -11,6 +11,7 @@ def main_information(request):
         "catalog_title" : "Catalog",
         "information_title" : "Information",
         "about_us_title" : "About us",
+        "contact_us_title" : "Contact us",
         "checkout" : "Go to Checkout",
         "footer" : "Welcome to Home Place Store",
 
