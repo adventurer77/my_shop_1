@@ -24,7 +24,7 @@ def login(request):
 
             if user:
                 auth.login(request, user)
-                messages.success(request, f"{username}, You are logged in to your account.")
+                messages.success(request, f"{username}, You're logged in to your account.")
 
                 if session_key:
                      # delete old authorized user carts
@@ -67,7 +67,7 @@ def registration(request):
             if session_key:
                 Cart.objects.filter(session_key=session_key).update(user=user)
 
-            messages.success(request, f"{user.username}, You have successfully registered and logged into your account.")
+            messages.success(request, f"{user.username}, You have successfully registered and logged in to your account.")
             return HttpResponseRedirect(reverse("main:index"))
 
     else:
@@ -75,7 +75,7 @@ def registration(request):
 
     context = {
         "title": "Registration",
-        "personal_account_btn": "Create personal account",
+        "personal_account_btn": "Create a personal account",
         "form": form
     }
     return render(request, "users/registration.html", context)
@@ -86,7 +86,7 @@ def profile(request):
         form = ProfileForm(data=request.POST, instance=request.user, files=request.FILES)
         if form.is_valid():
             form.save()
-            messages.success(request, "Profile has been successfully updated.")
+            messages.success(request, "Profile successfully updated.")
             return HttpResponseRedirect(reverse("user:profile"))
 
     else:
@@ -123,6 +123,6 @@ def users_cart(request):
 
 @login_required
 def logout(request):
-    messages.success(request, f"{request.user.username}, You are logged out of your account.")
+    messages.success(request, f"{request.user.username}, You've logged out of your account.")
     auth.logout(request)
     return redirect(reverse("main:index"))

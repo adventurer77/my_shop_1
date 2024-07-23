@@ -13,10 +13,10 @@ class ContactForm(forms.ModelForm):
 
         widgets = {
 
-            'name': forms.TextInput(attrs={'class': 'form-control', "id" : "name", 'placeholder': 'Your Name'}),
-            'email': forms.EmailInput(attrs={'class': 'form-control', "id" : "email",'placeholder': 'Your Email'}),
-            'phone': forms.TextInput(attrs={'class': 'form-control', "id" : "phone", 'placeholder': 'Your Phone'}),
-            "comment": forms.Textarea(attrs={'class': 'form-control', "id" : "comment",'placeholder': 'Your Message'}),
+            'name': forms.TextInput(attrs={'class': 'form-control', "id" : "name", 'placeholder': 'Your name'}),
+            'email': forms.EmailInput(attrs={'class': 'form-control', "id" : "email",'placeholder': 'Your email'}),
+            'phone': forms.TextInput(attrs={'class': 'form-control', "id" : "phone", 'placeholder': 'Your phone'}),
+            "comment": forms.Textarea(attrs={'class': 'form-control', "id" : "comment",'placeholder': 'Your message'}),
         }
 
         labels = {
@@ -32,13 +32,13 @@ class ContactForm(forms.ModelForm):
 
         error_messages = {
             'name': {
-                'required': 'This field is required.',
+                'required': 'This field is mandatory.',
             },
             'phone': {
-                'required': 'This field is required.',
+                'required': 'This field is mandatory.',
             },
             'email': {
-                'required': 'This field is required.',
+                'required': 'This field is mandatory.',
             },
             
         }

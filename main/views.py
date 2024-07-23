@@ -16,8 +16,8 @@ def index(request):
 
 def about(request):
     context = {
-        "title": "Adout us",
-        "content": "Adout us",
+        "title": "About us",
+        "content": "About us",
         "text_on_page": "HOME PLACE is the best furniture store in the world",
     }
 
@@ -33,7 +33,7 @@ def contact(request):
     }
     if form.is_valid():
         form.save()
-        messages.success(request, "Thank you for your question, we will contact you as soon as possible.")
+        messages.success(request, "Thank you for your question, we will get back to you as soon as possible.")
         return render(request, "main/index.html", context)
     else:
 
