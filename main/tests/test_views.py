@@ -17,7 +17,7 @@ class HomeTest(TestCase):
         """Test the about view returns a successful response with the correct context."""
         response = self.client.get(reverse('main:about'))
         self.assertEqual(response.status_code, 200)
-        self.assertContains(response, "Adout us")  # Check for title in response
+        self.assertContains(response, "About us")  # Check for title in response
         self.assertContains(response, "HOME PLACE is the best furniture store in the world")  # Check for content on page
     
     
